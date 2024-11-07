@@ -11,10 +11,11 @@ import { Meal } from "../types";
 
 type Props = {
   meal: Meal;
-  loading: boolean
+  loading?: boolean;
+  openRecipe: () => void;
 };
 
-const MealCard = ({ meal, loading }: Props) => {
+const MealCard = ({ meal,openRecipe  }: Props) => {
   return (
     <Card m={4} boxShadow={"lg"} overflow="hidden">
       <Image src={meal.strMealThumb} alt={meal.strMeal} />
@@ -24,7 +25,7 @@ const MealCard = ({ meal, loading }: Props) => {
         </Heading>
       </CardBody>
       <CardFooter pt={0}>
-        <Button color={"white"} bg={"blue.400"}>
+        <Button onClick={openRecipe} color={"white"} bg={"blue.400"}>
           Ver receta
         </Button>
       </CardFooter>
